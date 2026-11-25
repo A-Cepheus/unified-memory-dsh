@@ -2,9 +2,9 @@
 
 <img src="assets/icon.svg" width="96" height="96" alt="Unified Memory Logo" />
 
-# Unified Memory for DeepSeek Harness (`dsh`)
+# Unified Memory for DeepSeek Harness
 
-**面向 DeepSeek Harness 的统一记忆层 —— 完整打通 Claude Code 自动记忆与规则（读写）和 OpenAI Codex CLI 记忆（严格只读），内置中英双语（`zh` / `en`）原生 Web 与桌面端管理控制台。**
+**面向 DeepSeek Harness 的统一记忆层 —— 完整打通 Claude Code 自动记忆与规则（读写）和 OpenAI Codex CLI 记忆（严格只读），内置中英双语原生 Web 与桌面端管理控制台。**
 
 <p>
   <a href="https://www.npmjs.com/package/unified-memory-dsh"><img src="https://img.shields.io/npm/v/unified-memory-dsh?style=flat-square&color=CB3837" alt="npm version" /></a>
@@ -53,7 +53,7 @@
 
 ### 方式一：通过 npm 直接安装（推荐）
 
-从 npm 安装可同时解锁 DSH 插件面板中的自动版本检测与一键升级能力。
+从 npm 安装可同时解锁插件面板中的自动版本检测与一键升级能力。
 
 - **Web / Headless / ACP / SDK CLI**：
 
@@ -65,8 +65,8 @@
   dsh plugin --profile headless add unified-memory-dsh
   ```
 
-- **DeepSeek Harness 桌面端（Desktop）与 Web 界面**：
-  `dsh` CLI 默认不允许通过命令行修改 `--profile desktop`。打开 **DeepSeek Harness → 左侧边栏 Plugins（插件）→ 安装插件**，直接输入 **`unified-memory-dsh`** 确认即可安装启用。
+- **桌面端与 Web 界面**：
+  CLI 默认不允许通过命令行修改 `--profile desktop`。打开左侧边栏 **插件 → 安装插件**，直接输入 **`unified-memory-dsh`** 确认即可安装启用。
 
 ### 方式二：从 GitHub 或离线 Release `.tgz` 安装（内网适用）
 
@@ -78,7 +78,7 @@ dsh plugin --profile web add github:A-Cepheus/unified-memory-dsh
 dsh plugin --profile web add /绝对路径/unified-memory-dsh-0.1.0.tgz
 ```
 
-> 在桌面端 / Web Plugins 界面安装本地 `.tgz` 时需填写绝对路径（如 `/绝对路径/unified-memory-dsh-0.1.0.tgz`）。离线压缩包可在 [GitHub Releases](https://github.com/A-Cepheus/unified-memory-dsh/releases) 下载。
+> 在桌面端或 Web 插件界面安装本地 `.tgz` 时需填写绝对路径（如 `/绝对路径/unified-memory-dsh-0.1.0.tgz`）。离线压缩包可在 [GitHub Releases](https://github.com/A-Cepheus/unified-memory-dsh/releases) 下载。
 
 ### 方式三：本地开发零安装调试（`--patch`）
 
@@ -93,7 +93,7 @@ EOF
 dsh web --patch /tmp/um-dev.patch.yml
 ```
 
-激活后，可在 `dsh web` 或桌面端 **左侧边栏** 打开 **统一记忆（Unified Memory）** 控制台，或在 **右侧边栏** 查看当前会话的实时记忆上下文；在 CLI / Headless 模式下直接输入 `/memory status`。
+激活后，可在 `dsh web` 或桌面端 **左侧边栏** 打开 **统一记忆** 控制台，或在 **右侧边栏** 查看当前会话的实时记忆上下文；在 CLI / Headless 模式下直接输入 `/memory status`。
 
 ---
 
@@ -126,8 +126,8 @@ flowchart LR
 > 从底层架构保障高 Prompt Cache / KV Cache 命中率：
 > - **静态指引 + 持久化基线快照**：不变的全局记忆纪律通过 `ctx.systemPrompt.section`（`interpolate: false`）注入；工作区相关的规则与记忆索引在 `ctx.on('agent/pre-step', ..., { prepend: true })` 中以插件自有来源 `source: { kind: 'unified-memory', form: 'instructions', baseline: true }` 注入（完全通过 V4 JSONL 校验，聊天界面自动折叠为披露条）。
 > - **与 `dsh-agent-instructions` 精准零重复**：借助 `{ prepend: true }` 捕获宿主已拼接的 `source.changes[]`，自动跳过 `AGENTS.md` 与裸 `CLAUDE.md` 正文重复注入，同时继续展开 `@import` 链、加载 `~/.claude/` 与 `.claude/rules/`，并在 `minimal` 等未启用宿主规则的预设下自动完整接管 `CLAUDE.md`。
-> - **原生 `/compact` 压实自动重载**：监听 `agent.session.surface.nodes` 与 `surface.replaceGeneration` —— 会话恢复（`resume`）绝不重复注入，压实后自动重载最新基线并重置懒加载去重集。
-> - **`subagent_fork` 100% 复用父会话缓存**：进程内派生（`fork`）子代理自动识别继承自父会话表面的基线节点，跳过重复注入。
+> - **原生 `/compact` 压实自动重载**：监听 `agent.session.surface.nodes` 与 `surface.replaceGeneration` —— 会话恢复绝不重复注入，压实后自动重载最新基线并重置懒加载去重集。
+> - **`subagent_fork` 100% 复用父会话缓存**：进程内 `fork` 子代理自动识别继承自父会话表面的基线节点，跳过重复注入。
 > - **会话级语言锁定**：每段会话在首次基线注入时锁定解析后的语言（`zh` / `en`），直到 `/compact` 或新会话才重新评估，杜绝中途语言抖动破坏缓存。
 
 ---
@@ -151,9 +151,9 @@ flowchart LR
 - **中英双语全文检索**：内置中文全角标点切分与双字（bigram）回退匹配，精准召回 `rollout_summaries/`、`extensions/ad_hoc/`、`skills/` 与分块 v1 `MEMORY.md`。
 - **绝对只读路径沙箱**：硬拦截 `..`、`.git`、`.codex-baseline`、`raw_memories.md`、`*.sqlite`，对 `~/.codex/` 零写入。
 
-### 4. 原生中英双语 Web & 桌面端控制台（`zh` / `en`）
+### 4. 原生中英双语 Web & 桌面端控制台
 - **左侧边栏全局控制台**：
-  - **总览（Overview）** — Claude / Codex 记忆资产总览、实时配置开关（含 `自动 / 简体中文 / English` 语言切换）、活跃与近期会话及诊断日志。
+  - **总览** — Claude / Codex 记忆资产总览、实时配置开关（含 `自动 / 简体中文 / English` 语言切换）、活跃与近期会话及诊断日志。
   - **Claude 记忆** — `MEMORY.md` 可视化编辑（附 200 行 / 25 KB 预算进度条）与主题记忆完整增删改查。
   - **Codex 记忆（只读）** — `memory_summary.md` 预览、目录浏览与中英文全文搜索。
   - **规则与上下文** — 查看 `CLAUDE.md` 层级、宿主去重标识、`@import` 依赖链、条件 `paths:` 规则以及仅用户可操作的外部信任授权面板。
@@ -189,7 +189,7 @@ flowchart LR
 
 ## 配置说明
 
-可通过 `cordis.patch.yml`、Plugins 设置卡片（`.volatile()` 字段）或在 **总览** 标签页实时修改（持久化于 `$DSH_HOME/storages/unified-memory/config.json`）：
+可通过 `cordis.patch.yml`、插件设置卡片（`.volatile()` 字段）或在 **总览** 标签页实时修改（持久化于 `$DSH_HOME/storages/unified-memory/config.json`）：
 
 | 配置项 | 默认值 | 说明 |
 | --- | --- | --- |
@@ -232,7 +232,7 @@ flowchart LR
 
 ```text
 unified-memory-dsh/
-├── package.json            # DSH Bundle 清单（engines.dsh、exports、dsh.bundle、dsh.client）
+├── package.json            # Bundle 清单（engines.dsh、exports、dsh.bundle、dsh.client）
 ├── cordis.patch.yml        # Cordis v4 Bundle 层（裸包名确保 ./client 自动发现）
 ├── assets/icon.svg         # 插件矢量图标
 ├── locale/

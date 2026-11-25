@@ -1,6 +1,6 @@
-# Unified Memory（DeepSeek Harness 统一记忆插件）
+# 统一记忆
 
-**Unified Memory** 为 DeepSeek Harness（`dsh`）提供跨 AI 编码代理的本地持久记忆与规则互通能力，一套零编译原生插件包完整覆盖 `web`、`desktop`、`headless`、`acp` 与 `sdk` 全部运行模式。
+**Unified Memory** 为 DeepSeek Harness 提供跨 AI 编码代理的本地持久记忆与规则互通能力，一套零编译原生插件包完整覆盖 `web`、`desktop`、`headless`、`acp` 与 `sdk` 全部运行模式。
 
 ## 核心能力
 
@@ -31,7 +31,7 @@
 - **9 个原生模型工具**：`claude_memory_status`、`claude_memory_list`、`claude_memory_read`、`claude_memory_save`、`claude_memory_delete`、`claude_rules_inspect`、`codex_memory_summary`、`codex_memory_search`、`codex_memory_read`。
 - **Slash 命令**：`/memory [status | list | rules | trust | reload]`（仅日志记录，零 Token 与 KV-Cache 开销）。
 - **内置技能**：`memory-manage` 与 `memory-dream`（中英双语触发词）。
-- **Web 与 Desktop 原生界面**：
+- **Web 与桌面端原生界面**：
   - **左侧边栏全局控制台**：总览、Claude 记忆、Codex 记忆（只读）、规则与上下文四大标签页。
   - **右侧边栏会话上下文面板**：实时查看当前会话的语言、基线状态、压实重载次数、宿主去重与按需加载规则。
 

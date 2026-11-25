@@ -2,9 +2,9 @@
 
 <img src="assets/icon.svg" width="96" height="96" alt="Unified Memory Logo" />
 
-# Unified Memory for DeepSeek Harness (`dsh`)
+# Unified Memory for DeepSeek Harness
 
-**One unified memory layer for DeepSeek Harness — bridging Claude Code Auto Memory & Rules (Read-Write) with OpenAI Codex CLI Memory (Strictly Read-Only), plus a native bilingual (`zh` / `en`) Web & Desktop Console.**
+**One unified memory layer for DeepSeek Harness — bridging Claude Code Auto Memory & Rules (Read-Write) with OpenAI Codex CLI Memory (Strictly Read-Only), plus a native bilingual Web & Desktop Console.**
 
 <p>
   <a href="https://www.npmjs.com/package/unified-memory-dsh"><img src="https://img.shields.io/npm/v/unified-memory-dsh?style=flat-square&color=CB3837" alt="npm version" /></a>
@@ -53,7 +53,7 @@
 
 ### Option 1: Install from npm (Recommended)
 
-Installing via npm unlocks automatic version detection and one-click upgrades inside the DSH Plugins UI.
+Installing via npm unlocks automatic version detection and one-click upgrades inside the Plugins UI.
 
 - **Web / Headless / ACP / SDK CLI**:
 
@@ -65,8 +65,8 @@ Installing via npm unlocks automatic version detection and one-click upgrades in
   dsh plugin --profile headless add unified-memory-dsh
   ```
 
-- **DeepSeek Harness Desktop & Web UI**:
-  `dsh` CLI restricts `--profile desktop` modifications to the desktop host. Open **DeepSeek Harness → Plugins (left sidebar) → Install Plugin**, enter **`unified-memory-dsh`**, and confirm.
+- **Desktop & Web UI**:
+  The CLI restricts `--profile desktop` modifications to the desktop host. Open **Plugins → Install Plugin** in the left sidebar, enter **`unified-memory-dsh`**, and confirm.
 
 ### Option 2: Install from GitHub or Offline Release Tarball (`.tgz`)
 
@@ -151,7 +151,7 @@ flowchart LR
 - **Bilingual Full-Text Search**: Splits on both ASCII and Chinese full-width punctuation with CJK bigram fallback so Chinese and English recall queries match `rollout_summaries/`, `extensions/ad_hoc/`, `skills/`, and chunked v1 `MEMORY.md`.
 - **Hard Path Jail & Zero Writes**: Blocks `..`, `.git`, `.codex-baseline`, `raw_memories.md`, `*.sqlite`, and performs zero writes to `~/.codex/`.
 
-### 4. Native Bilingual Web & Desktop Console (`zh` / `en`)
+### 4. Native Bilingual Web & Desktop Console
 - **Left Sidebar Global Console**:
   - **Overview** — Claude & Codex inventory, live config toggles (including `Auto / 简体中文 / English` locale selector), active & recent sessions, and diagnostics.
   - **Claude Memory** — Visual `MEMORY.md` editor with 200-line / 25 KB budget meters + full topic CRUD.
@@ -189,7 +189,7 @@ All tools automatically resolve the active session's working directory via `ctx.
 
 ## Configuration
 
-Settings can be configured in `cordis.patch.yml`, in DSH's Plugins settings card (`.volatile()` fields), or live in the **Overview** tab (persisted at `$DSH_HOME/storages/unified-memory/config.json`):
+Settings can be configured in `cordis.patch.yml`, in the Plugins settings card (`.volatile()` fields), or live in the **Overview** tab (persisted at `$DSH_HOME/storages/unified-memory/config.json`):
 
 | Key | Default | Description |
 | --- | --- | --- |
@@ -232,7 +232,7 @@ Settings can be configured in `cordis.patch.yml`, in DSH's Plugins settings card
 
 ```text
 unified-memory-dsh/
-├── package.json            # DSH Bundle manifest (engines.dsh, exports, dsh.bundle, dsh.client)
+├── package.json            # Bundle manifest (engines.dsh, exports, dsh.bundle, dsh.client)
 ├── cordis.patch.yml        # Cordis v4 bundle layer (bare package name for ./client discovery)
 ├── assets/icon.svg         # Plugin vector icon
 ├── locale/

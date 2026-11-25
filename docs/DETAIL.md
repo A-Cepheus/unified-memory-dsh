@@ -1,6 +1,6 @@
 # Unified Memory for DeepSeek Harness
 
-**Unified Memory** brings cross-agent local persistent memory and rule interoperability directly into DeepSeek Harness (`dsh`) across `web`, `desktop`, `headless`, `acp`, and `sdk` profiles.
+**Unified Memory** brings cross-agent local persistent memory and rule interoperability directly into DeepSeek Harness across `web`, `desktop`, `headless`, `acp`, and `sdk` profiles.
 
 ## What It Provides
 

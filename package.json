@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "license": "MIT",
-  "description": "Unified Memory plugin for DeepSeek Harness (dsh) — bridges Claude Code Auto Memory & Rules (read-write) with OpenAI Codex CLI Memory (strictly read-only), plus native bilingual Web/Desktop UI. | DeepSeek Harness 统一记忆插件：打通 Claude Code 自动记忆与规则（读写）和 Codex 记忆（严格只读），内置中英双语原生界面。",
+  "description": "Unified Memory plugin for DeepSeek Harness — bridges Claude Code Auto Memory & Rules (read-write) with OpenAI Codex CLI Memory (strictly read-only), plus native bilingual Web/Desktop UI. | DeepSeek Harness 统一记忆插件：打通 Claude Code 自动记忆与规则（读写）和 Codex 记忆（严格只读），内置中英双语原生界面。",
   "type": "module",
   "main": "./lib/index.js",
   "icon": "./assets/icon.svg",
