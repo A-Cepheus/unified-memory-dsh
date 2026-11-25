@@ -7,6 +7,7 @@
 **One unified memory layer for DeepSeek Harness — bridging Claude Code Auto Memory & Rules (Read-Write) with OpenAI Codex CLI Memory (Strictly Read-Only), plus a native bilingual (`zh` / `en`) Web & Desktop Console.**
 
 <p>
+  <a href="https://www.npmjs.com/package/unified-memory-dsh"><img src="https://img.shields.io/npm/v/unified-memory-dsh?style=flat-square&color=CB3837" alt="npm version" /></a>
   <img src="https://img.shields.io/badge/DeepSeek%20Harness-Cordis%20Bundle%20%2B%20Web%20UI-4F46E5?style=flat-square" alt="DeepSeek Harness Cordis Bundle + Web UI" />
   <img src="https://img.shields.io/badge/Claude%20Code-v2.1.x%20Read--Write-F97316?style=flat-square" alt="Claude Code v2.1.x Read-Write" />
   <img src="https://img.shields.io/badge/Codex%20CLI-v1%2Fv2%20Read--Only-10B981?style=flat-square" alt="Codex CLI Read-Only" />
@@ -50,19 +51,34 @@
 > [!TIP]
 > Pre-bundled, zero-dependency artifacts (`lib/index.js` and `lib/client.js`) are committed in this repository with **no `prepare` or `postinstall` script** — installing via `dsh plugin` requires **zero compilation** and **zero pnpm `allowBuilds` prompts**. Compatible with `@deepseek-ai/dsh >=0.2.0 <0.3.0` on **Node.js ≥ 24.9.0**.
 
-### Option 1: Install in Web / Headless / ACP / SDK Profile (Recommended)
+### Option 1: Install from npm (Recommended)
+
+Installing via npm unlocks automatic version detection and one-click upgrades inside the DSH Plugins UI.
+
+- **Web / Headless / ACP / SDK CLI**:
+
+  ```bash
+  # Install into the `web` profile
+  dsh plugin --profile web add unified-memory-dsh
+
+  # Or for headless / acp / sdk profiles (same package adapts automatically)
+  dsh plugin --profile headless add unified-memory-dsh
+  ```
+
+- **DeepSeek Harness Desktop & Web UI**:
+  `dsh` CLI restricts `--profile desktop` modifications to the desktop host. Open **DeepSeek Harness → Plugins (left sidebar) → Install Plugin**, enter **`unified-memory-dsh`**, and confirm.
+
+### Option 2: Install from GitHub or Offline Release Tarball (`.tgz`)
 
 ```bash
-# Install directly from GitHub into the `web` profile
+# Directly from GitHub (pre-bundled, no build step required)
 dsh plugin --profile web add github:A-Cepheus/unified-memory-dsh
 
-# Or for headless / acp / sdk profiles (same package adapts automatically)
-dsh plugin --profile headless add github:A-Cepheus/unified-memory-dsh
+# Offline / intranet install from a downloaded GitHub Release `.tgz`
+dsh plugin --profile web add /absolute/path/to/unified-memory-dsh-0.1.0.tgz
 ```
 
-### Option 2: Install in DeepSeek Harness Desktop
-
-`dsh` CLI restricts `--profile desktop` modifications to the desktop host. Open **DeepSeek Harness Desktop → Plugins (left sidebar) → Install Plugin**, and enter `github:A-Cepheus/unified-memory-dsh` (or your local path).
+> In Desktop / Web Plugins UI, local `.tgz` paths must be absolute (e.g., `/absolute/path/to/unified-memory-dsh-0.1.0.tgz`). Download prebuilt tarballs from [GitHub Releases](https://github.com/A-Cepheus/unified-memory-dsh/releases).
 
 ### Option 3: Local Development Without Installing (`--patch`)
 

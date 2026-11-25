@@ -7,6 +7,7 @@
 **面向 DeepSeek Harness 的统一记忆层 —— 完整打通 Claude Code 自动记忆与规则（读写）和 OpenAI Codex CLI 记忆（严格只读），内置中英双语（`zh` / `en`）原生 Web 与桌面端管理控制台。**
 
 <p>
+  <a href="https://www.npmjs.com/package/unified-memory-dsh"><img src="https://img.shields.io/npm/v/unified-memory-dsh?style=flat-square&color=CB3837" alt="npm version" /></a>
   <img src="https://img.shields.io/badge/DeepSeek%20Harness-Cordis%20Bundle%20%2B%20Web%20UI-4F46E5?style=flat-square" alt="DeepSeek Harness Cordis Bundle + Web UI" />
   <img src="https://img.shields.io/badge/Claude%20Code-v2.1.x%20Read--Write-F97316?style=flat-square" alt="Claude Code v2.1.x Read-Write" />
   <img src="https://img.shields.io/badge/Codex%20CLI-v1%2Fv2%20Read--Only-10B981?style=flat-square" alt="Codex CLI Read-Only" />
@@ -50,19 +51,34 @@
 > [!TIP]
 > 仓库已提交零依赖预构建产物（`lib/index.js` 与 `lib/client.js`），且**不含 `prepare` / `postinstall` 脚本** —— 通过 `dsh plugin` 安装**无需本地编译**，也**无需触发 pnpm `allowBuilds` 弹窗**。兼容 `@deepseek-ai/dsh >=0.2.0 <0.3.0`，需要 **Node.js ≥ 24.9.0**。
 
-### 方式一：安装到 Web / Headless / ACP / SDK Profile（推荐）
+### 方式一：通过 npm 直接安装（推荐）
+
+从 npm 安装可同时解锁 DSH 插件面板中的自动版本检测与一键升级能力。
+
+- **Web / Headless / ACP / SDK CLI**：
+
+  ```bash
+  # 安装到 web profile
+  dsh plugin --profile web add unified-memory-dsh
+
+  # 同样支持 headless / acp / sdk profile（同一插件包自动按能力适配）
+  dsh plugin --profile headless add unified-memory-dsh
+  ```
+
+- **DeepSeek Harness 桌面端（Desktop）与 Web 界面**：
+  `dsh` CLI 默认不允许通过命令行修改 `--profile desktop`。打开 **DeepSeek Harness → 左侧边栏 Plugins（插件）→ 安装插件**，直接输入 **`unified-memory-dsh`** 确认即可安装启用。
+
+### 方式二：从 GitHub 或离线 Release `.tgz` 安装（内网适用）
 
 ```bash
-# 从 GitHub 直接安装到 web profile
+# 从 GitHub 直接安装（仓库已预构建，无需本地编译）
 dsh plugin --profile web add github:A-Cepheus/unified-memory-dsh
 
-# 同样支持 headless / acp / sdk profile（同一插件包自动按能力适配）
-dsh plugin --profile headless add github:A-Cepheus/unified-memory-dsh
+# 离线 / 内网环境：使用 GitHub Releases 下载的 .tgz 包安装
+dsh plugin --profile web add /绝对路径/unified-memory-dsh-0.1.0.tgz
 ```
 
-### 方式二：在 DeepSeek Harness 桌面端（Desktop）安装
-
-`dsh` CLI 默认不允许通过命令行修改 `--profile desktop`。请打开 **DeepSeek Harness Desktop → 左侧边栏 Plugins（插件）→ 安装插件**，输入 `github:A-Cepheus/unified-memory-dsh`（或本地目录路径）即可一键安装启用。
+> 在桌面端 / Web Plugins 界面安装本地 `.tgz` 时需填写绝对路径（如 `/绝对路径/unified-memory-dsh-0.1.0.tgz`）。离线压缩包可在 [GitHub Releases](https://github.com/A-Cepheus/unified-memory-dsh/releases) 下载。
 
 ### 方式三：本地开发零安装调试（`--patch`）
 

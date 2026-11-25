@@ -136,7 +136,7 @@
   "homepage": "https://github.com/A-Cepheus/unified-memory-dsh",
   "repository": {
     "type": "git",
-    "url": "https://github.com/A-Cepheus/unified-memory-dsh.git"
+    "url": "git+https://github.com/A-Cepheus/unified-memory-dsh.git"
   },
   "keywords": [
     "deepseek-harness",
