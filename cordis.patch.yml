@@ -1,0 +1,14 @@
+# Unified Memory bundle for DeepSeek Harness (dsh)
+# IMPORTANT: Keep `name` as the bare package name (`unified-memory-dsh`) so
+# `@deepseek-ai/dsh-client-modules` automatically discovers and serves `./client`.
+- insert:
+    - id: unified-memory
+      name: unified-memory-dsh
+      config:
+        locale: auto
+        injectCodexSummaryOnStart: true
+        codexSummaryMaxBytes: 8192
+        injectCodexGlobalAgentsMd: false
+        deduplicateNativeAgentsMd: true
+        trustClaudeCodeExternalApprovals: true
+        maxStartupInjectBytes: 65536

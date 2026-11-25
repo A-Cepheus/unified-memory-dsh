@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Unified Memory",
+    "description": "Bridge Claude Code Auto Memory & Rules (read-write) with OpenAI Codex CLI Memory (strictly read-only), plus a bilingual Web/Desktop management console.",
+    "detail": "docs/DETAIL.md"
+  }
+}

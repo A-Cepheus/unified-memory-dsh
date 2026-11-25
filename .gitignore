@@ -1,0 +1,9 @@
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+.DS_Store
+*.log
+coverage/
+# Note: lib/ is intentionally committed so users can install directly from GitHub
+# via `dsh plugin --profile web add github:<owner>/unified-memory-dsh` without a
+# local build step or pnpm `allowBuilds` approval.

@@ -1,0 +1,152 @@
+{
+  "name": "unified-memory-dsh",
+  "version": "0.1.0",
+  "private": false,
+  "license": "MIT",
+  "description": "Unified Memory plugin for DeepSeek Harness (dsh) — bridges Claude Code Auto Memory & Rules (read-write) with OpenAI Codex CLI Memory (strictly read-only), plus native bilingual Web/Desktop UI. | DeepSeek Harness 统一记忆插件：打通 Claude Code 自动记忆与规则（读写）和 Codex 记忆（严格只读），内置中英双语原生界面。",
+  "type": "module",
+  "main": "./lib/index.js",
+  "icon": "./assets/icon.svg",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "assets/icon.svg",
+    "cordis.patch.yml",
+    "docs",
+    "lib/index.js",
+    "lib/client.js",
+    "locale/*.json",
+    "LICENSE",
+    "README.md",
+    "README.zh-CN.md"
+  ],
+  "engines": {
+    "node": ">=24.9.0",
+    "dsh": ">=0.2.0 <0.3.0"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml",
+      "listedByDefault": true
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-session",
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-ui-sidebar-right",
+        "@deepseek-ai/dsh-client-ui-layout"
+      ],
+      "immediately": false
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "node scripts/build.mjs",
+    "build:host": "node scripts/build.mjs --host-only",
+    "build:client": "node scripts/build.mjs --client-only",
+    "test": "tsx --test tests/*.test.ts"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.1.0",
+    "@deepseek-ai/schemastery": "^3.19.0",
+    "@deepseek-ai/dsh-agent": ">=0.2.0 <0.3.0",
+    "@deepseek-ai/dsh-llm": ">=0.2.0 <0.3.0",
+    "@deepseek-ai/dsh-session": ">=0.2.0 <0.3.0",
+    "@deepseek-ai/dsh-tools": ">=0.2.0 <0.3.0",
+    "@deepseek-ai/dsh-working-directory": ">=0.2.0 <0.3.0",
+    "@deepseek-ai/dsh-home-paths": ">=0.2.0 <0.3.0",
+    "@deepseek-ai/dsh-commands": ">=0.2.0 <0.3.0",
+    "@deepseek-ai/dsh-skill": ">=0.2.0 <0.3.0",
+    "@deepseek-ai/dsh-system-prompt": ">=0.2.0 <0.3.0",
+    "@deepseek-ai/dsh-client-connection": ">=0.2.0 <0.3.0",
+    "@deepseek-ai/dsh-settings": ">=0.2.0 <0.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-commands": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-skill": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-system-prompt": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-connection": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-settings": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "~4.1.0",
+    "@deepseek-ai/dsh": "0.2.2-rc.5",
+    "@deepseek-ai/dsh-agent": "0.2.2-rc.5",
+    "@deepseek-ai/dsh-client-connection": "0.2.2-rc.5",
+    "@deepseek-ai/dsh-client-locale": "0.2.2-rc.5",
+    "@deepseek-ai/dsh-client-ui-conversation": "0.2.2-rc.5",
+    "@deepseek-ai/dsh-client-ui-layout": "0.2.2-rc.5",
+    "@deepseek-ai/dsh-client-ui-renderer": "0.2.2-rc.5",
+    "@deepseek-ai/dsh-client-ui-session": "0.2.2-rc.5",
+    "@deepseek-ai/dsh-client-ui-sidebar": "0.2.2-rc.5",
+    "@deepseek-ai/dsh-client-ui-sidebar-right": "0.2.2-rc.5",
+    "@deepseek-ai/dsh-client-ui-theme": "0.2.2-rc.5",
+    "@deepseek-ai/dsh-client-ui-workspace": "0.2.2-rc.5",
+    "@deepseek-ai/dsh-commands": "0.2.2-rc.5",
+    "@deepseek-ai/dsh-home-paths": "0.2.2-rc.5",
+    "@deepseek-ai/dsh-llm": "0.2.2-rc.5",
+    "@deepseek-ai/dsh-session": "0.2.2-rc.5",
+    "@deepseek-ai/dsh-settings": "0.2.2-rc.5",
+    "@deepseek-ai/dsh-skill": "0.2.2-rc.5",
+    "@deepseek-ai/dsh-system-prompt": "0.2.2-rc.5",
+    "@deepseek-ai/dsh-tools": "0.2.2-rc.5",
+    "@deepseek-ai/dsh-working-directory": "0.2.2-rc.5",
+    "@deepseek-ai/schemastery": "~3.19.0",
+    "@types/node": "^22.15.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "esbuild": "^0.25.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  },
+  "author": {
+    "name": "A-Cepheus",
+    "url": "https://github.com/A-Cepheus"
+  },
+  "homepage": "https://github.com/A-Cepheus/unified-memory-dsh",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/A-Cepheus/unified-memory-dsh.git"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "memory",
+    "claude-code",
+    "codex",
+    "rules",
+    "bilingual",
+    "i18n"
+  ]
+}

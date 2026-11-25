@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "统一记忆 (Unified Memory)",
+    "description": "面向 DeepSeek Harness 的统一记忆层：打通 Claude Code 自动记忆与规则（读写）和 OpenAI Codex CLI 记忆（严格只读），内置中英双语管理控制台。",
+    "detail": "docs/DETAIL.zh.md"
+  }
+}
