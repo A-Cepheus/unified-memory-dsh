@@ -471,7 +471,7 @@ describe('Client Slot Registrations, Reactive zh<->en Switching & SSR Smoke Test
     const { mod } = loadCompiledClientBundle();
 
     const overview: OverviewResponse = {
-      version: '0.1.0',
+      version: '0.1.1',
       pluginDataDir: '/tmp/dsh-data',
       resolvedLocale: 'en',
       hostLocalePreference: 'en',

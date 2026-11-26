@@ -75,10 +75,10 @@ Installing via npm unlocks automatic version detection and one-click upgrades in
 dsh plugin --profile web add github:A-Cepheus/unified-memory-dsh
 
 # Offline / intranet install from a downloaded GitHub Release `.tgz`
-dsh plugin --profile web add /absolute/path/to/unified-memory-dsh-0.1.0.tgz
+dsh plugin --profile web add /absolute/path/to/unified-memory-dsh-0.1.1.tgz
 ```
 
-> In Desktop / Web Plugins UI, local `.tgz` paths must be absolute (e.g., `/absolute/path/to/unified-memory-dsh-0.1.0.tgz`). Download prebuilt tarballs from [GitHub Releases](https://github.com/A-Cepheus/unified-memory-dsh/releases).
+> In Desktop / Web Plugins UI, local `.tgz` paths must be absolute (e.g., `/absolute/path/to/unified-memory-dsh-0.1.1.tgz`). Download prebuilt tarballs from [GitHub Releases](https://github.com/A-Cepheus/unified-memory-dsh/releases).
 
 ### Option 3: Local Development Without Installing (`--patch`)
 

@@ -354,6 +354,16 @@ describe('Unified Memory DSH — Real Cordis v4 Host E2E Suite', () => {
         guidanceSection.text.includes('claude_memory_save'),
         'Guidance section must instruct model on unified-memory tools',
       );
+      assert.ok(
+        guidanceSection.text.includes('Skip saving on routine turns'),
+        'Guidance section must guard against saving on routine turns',
+      );
+      assert.ok(
+        guidanceSection.text.includes('record from failure AND success'),
+        'Guidance section must cover both failure corrections and validated successes',
+      );
+      assert.ok(guidanceSection.text.includes('**Why:**'));
+      assert.ok(guidanceSection.text.includes('**How to apply:**'));
 
       // 1c. Verify bundled skills registered
       const skills = await harness.ctx.skills.list();

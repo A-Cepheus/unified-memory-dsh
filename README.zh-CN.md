@@ -75,10 +75,10 @@
 dsh plugin --profile web add github:A-Cepheus/unified-memory-dsh
 
 # 离线 / 内网环境：使用 GitHub Releases 下载的 .tgz 包安装
-dsh plugin --profile web add /绝对路径/unified-memory-dsh-0.1.0.tgz
+dsh plugin --profile web add /绝对路径/unified-memory-dsh-0.1.1.tgz
 ```
 
-> 在桌面端或 Web 插件界面安装本地 `.tgz` 时需填写绝对路径（如 `/绝对路径/unified-memory-dsh-0.1.0.tgz`）。离线压缩包可在 [GitHub Releases](https://github.com/A-Cepheus/unified-memory-dsh/releases) 下载。
+> 在桌面端或 Web 插件界面安装本地 `.tgz` 时需填写绝对路径（如 `/绝对路径/unified-memory-dsh-0.1.1.tgz`）。离线压缩包可在 [GitHub Releases](https://github.com/A-Cepheus/unified-memory-dsh/releases) 下载。
 
 ### 方式三：本地开发零安装调试（`--patch`）
 

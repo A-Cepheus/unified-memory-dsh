@@ -233,7 +233,8 @@ export function registerHostTools(ctx: Context, runtime: HostRuntime): void {
         description: {
           type: 'string',
           required: true,
-          description: 'Concise one-line description used for relevance recall and MEMORY.md index.',
+          description:
+            'Specific, concise one-line description (<= 150 chars) used for relevance recall and MEMORY.md index.',
         },
         type: {
           type: 'string',
@@ -244,7 +245,8 @@ export function registerHostTools(ctx: Context, runtime: HostRuntime): void {
         body: {
           type: 'string',
           required: true,
-          description: 'Markdown body content of the memory note.',
+          description:
+            'Markdown body content of the memory note. For feedback/project memories, lead with the rule/decision followed by **Why:** and **How to apply:**.',
         },
         filename: {
           type: 'string',
